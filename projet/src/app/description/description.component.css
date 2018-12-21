@@ -1,0 +1,53 @@
+.box.box-success {
+  border-top-color: #00a65a;
+}
+.box {
+  position: relative;
+  border-radius: 3px;
+  background: #ffffff;
+  border-top: 3px solid #d2d6de;
+  margin-bottom: 20px;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+.btn-block+.btn-block {
+  margin-top: 5px;
+}
+.btn-facebook {
+  color: #fff;
+  background-color: #3b5998;
+  border-color: rgba(0,0,0,0.2);
+}
+.btn-social {
+  position: relative;
+  padding-left: 44px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.btn {
+  border-radius: 3px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid transparent;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+}
+.item-carousel div,
+.item-carousel img{
+  height: 100%;
+  width: 100%;
+}
+.item-carousel div{
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}

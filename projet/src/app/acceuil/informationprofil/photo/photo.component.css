@@ -1,0 +1,32 @@
+.avatar{
+  vertical-align: middle;
+  width: 118px ;
+  height: 118px;
+  border-radius: 90% ;
+
+}
+.img {
+  list-style-type: none;
+}
+.image-upload > input
+{
+  display: none;
+}
+
+.image-upload img
+{
+  width: 80px;
+}
+
+span.fa-camera {
+
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  z-index:10;
+  left: 40px;
+  top: 60px;
+}
+span:hover {
+  opacity: 0.6;
+}
