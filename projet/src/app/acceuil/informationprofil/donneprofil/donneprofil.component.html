@@ -8,34 +8,24 @@
       </button>
     </div>
     <div class="modal-body">
-      <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <form [formGroup]="angularForm" novalidate>
         <div class="form-row">
 
           <div class="col">
-            <label>Nom:</label>
-            <input type="text" class="form-control" style="border-color: #00a65a;"name="username" ngModel>
+            <label>Username:</label>
+            <input type="text" class="form-control" style="border-color: #00a65a;"formControlName="username">
           </div>
           <div class="col">
-            <label>Prénom:</label>
-            <input type="text" class="form-control" style="border-color: #00a65a;" name="prenom" ngModel>
+            <label>Name:</label>
+            <input type="text" class="form-control" style="border-color: #00a65a;" formControlName="name">
           </div>
         </div>
         <div class="form-group">
           <label >Email:</label>
-          <input type="email" class="form-control" style="border-color: #00a65a;" name="email"ngModel>
+          <input type="email" class="form-control" style="border-color: #00a65a;" formControlName="email">
         </div>
+      
         <div class="form-row">
-          <div class="col">
-            <label>Mot de passe :</label>
-            <input type="password" class="form-control" placeholder="Mot de passe" style="border-color: #00a65a;" name="password" ngModel>
-          </div>
-
-        </div>
-        <div class="form-row">
-          <div class="col">
-            <label> Date de naissance</label>
-            <input type="date" class="form-control"  style="border-color: #00a65a;" name="date" ngModel>
-          </div>
 
           <div class="col">
 
@@ -43,7 +33,7 @@
         </div>
         <div class="col">
           <label></label>
-          <button type="submit" class="btn btn-block btn-success" >Confirmer</button>
+          <button type="submit" class="btn btn-block btn-success" (click)="submitContactForm()">Confirmer</button>
 
         </div>
       </form>
@@ -53,7 +43,7 @@
     </div>
   </ng-template>&nbsp;&nbsp;
 
-  <button class="btn btn-outline-primary my-2 my-sm-0" (click)="open(content)"  >éditer</button>
+  <button class="btn btn-outline-primary my-2 my-sm-0" (click)="open(content,user)"  >éditer</button>
 
 
 

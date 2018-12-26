@@ -6,7 +6,7 @@ import { HeaderComponent} from './header/header.component';
 
 import { DescriptionComponent } from './description/description.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {enableProdMode} from '@angular/core';
 import {CarouselModule} from 'angular2-carousel';
 import {Ng2CarouselamosModule} from 'ng2-carouselamos';
@@ -25,6 +25,12 @@ import { StatutComponent } from './acceuil/statut/statut.component';
 import { FildactualiterComponent } from './acceuil/fildactualiter/fildactualiter.component';
 import { UserStatutComponent } from './acceuil/listamis/user-statut/user-statut.component';
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
+import { UserService } from 'src/service/user.service';
+import { AuthenticationService } from 'src/service/authentication.service';
+import { AlertService } from 'src/service/alert.service';
+import { AuthService } from 'src/service/auth.service';
+import { AuthGuard } from './guards/auth.guard';
+import { routing } from './app.routing';
 
 
 enableProdMode();
@@ -72,9 +78,15 @@ enableProdMode();
     HttpClientModule,
     Ng2CarouselamosModule,
     FormsModule, ReactiveFormsModule,
+    routing
   ],
 
-  providers: [],
+  providers: [
+    AuthGuard,
+    AuthService,
+    AlertService,
+    AuthenticationService,
+    UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

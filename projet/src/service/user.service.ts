@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import{User} from '../app/model/user';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
+import { User } from 'src/app/model/user';
 
 @Injectable({  providedIn: 'root'
 }
@@ -10,14 +10,24 @@ import { tap, catchError, map } from 'rxjs/operators';
 export class UserService {
  
   constructor(private http: HttpClient) { }
-  create(user:any) : Observable<any>  {
-    console.log(JSON.stringify(user))
-    return this.http.post('http://localhost:5000/users/register',JSON.stringify(user))
+  create(user:any) :Observable<any> {
+    return this.http.post(`httOp://localhost:5000/users/register`,JSON.stringify(user))
     .pipe(
       tap(calls => this.log('create')),
       catchError(this.handleError('create'))
-    )
+    );
     
+}
+update(user_id:string, data): Observable<any> {
+  // console.log(contact)
+    return this.http.put('http://localhost:5000/users/edit/'+ user_id , JSON.stringify(data))
+    .pipe(
+      tap(calls => this.log('update')),
+      catchError(this.handleError('update'))
+    );
+}
+getAll() {
+  return this.http.get<User[]>('http://localhost:5000/users/user/');
 }
 
 private handleError<T> (operation = 'operation', result?: T) {
